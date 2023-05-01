@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/Models/user.model';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
