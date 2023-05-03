@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProductsComponent {
   products: IProduct[] = [];
+  product?: IProduct;
 
   constructor(private productService: ProductService)
   {
@@ -18,6 +19,12 @@ export class ProductsComponent {
   getAllProducts(): void {
     this.productService.getAllProducts().subscribe(products => {
       this.products = products;
+    });
+  }
+
+  getProductById(id: number): any{
+    this.productService.getProductById(id).subscribe((product: IProduct) =>{
+      this.product = product;
     });
   }
 }
