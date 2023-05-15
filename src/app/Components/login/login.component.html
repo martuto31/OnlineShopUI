@@ -1,14 +1,12 @@
 <div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
+  <span id="popup-span" (click)="closePopUp()">&#10006;</span>
+  <form class="login-form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input class="input-field" type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required>
+    </div>
+    <div class="form-group">
+      <input class="input-field" type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required>
+    </div>
+    <button class="button-primary" type="submit">Login</button>
+  </form>
+</div>

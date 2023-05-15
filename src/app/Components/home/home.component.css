@@ -1,8 +1,9 @@
 .home-container{
-    background-color: lightgray;
+    background-color: lightblue;
     display: flex;
     width: 100vw;
     height: 100vh;
+    filter: blur(0);
 }
 
 .card-container {
@@ -52,9 +53,5 @@
     font-size: 4.5rem;
     font-style: bold;
     text-align: center;
-    text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   }

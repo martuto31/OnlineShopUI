@@ -27,4 +27,10 @@ export class LoginComponent
         console.log(err);
       });
   }
+
+  public closePopUp()
+  {
+    (document.querySelector('.login-container') as HTMLInputElement).style.display = 'none';
+    (document.querySelector('.home-container') as HTMLInputElement).style.filter = 'blur(0)';
+  }
 };
