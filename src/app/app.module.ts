@@ -9,11 +9,13 @@ import { LoginComponent } from './Components/login/login.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { NavComponent } from './Components/Shared/nav/nav.component';
 import { HomeComponent } from './Components/home/home.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
     ProductsComponent,
     NavComponent,
     HomeComponent,

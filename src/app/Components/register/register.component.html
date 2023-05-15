@@ -1,1 +1,15 @@
-<p>register works!</p>
+<div class="register-container">
+    <span id="popup-span" (click)="closePopUp()">&#10006;</span>
+    <form class="register-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input class="input-field" type="text" id="username" name="username" placeholder="Username" [(ngModel)]="user.username" required>
+      </div>
+      <div class="form-group">
+        <input class="input-field" type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
+      </div>
+      <div class="form-group">
+        <input class="input-field" type="email" id="email" name="email" placeholder="Email" [(ngModel)]="user.email" required>
+      </div>
+      <button class="button-primary" type="submit">Register</button>
+    </form>
+  </div>
