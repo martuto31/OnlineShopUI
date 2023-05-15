@@ -12,7 +12,7 @@ export class RegisterComponent  {
 
   constructor(private router: Router, private userService: UserService) {}
 
-  user: User = {username: '', id: 0, password: '', email: '', role: ''};
+  user: User = {username: '', password: '', email: '', roleId: 1, id: 0};
 
   public onSubmit(): void 
   {
