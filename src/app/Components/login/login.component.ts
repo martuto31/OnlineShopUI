@@ -20,8 +20,7 @@ export class LoginComponent
       .loginUser(this.username, this.password)
       .subscribe(() => 
       {
-        // Login successful, navigate to home page
-        this.router.navigate(['/home']);
+        this.closePopUp();
       }, err => 
       {
         console.log(err);

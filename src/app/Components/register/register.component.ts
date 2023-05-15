@@ -20,8 +20,7 @@ export class RegisterComponent  {
       .registerUser(this.user)
       .subscribe(() => 
       {
-        // Register successful, navigate to home page
-        this.router.navigate(['/home']);
+        this.closePopUp();
       }, err => 
       {
         console.log(err);
