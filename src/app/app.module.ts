@@ -10,6 +10,9 @@ import { ProductsComponent } from './Components/products/products.component';
 import { NavComponent } from './Components/Shared/nav/nav.component';
 import { HomeComponent } from './Components/home/home.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { WomenProductsComponent } from './Components/women-products/women-products.component';
+import { MenProductsComponent } from './Components/men-products/men-products.component';
+import { KidsProductsComponent } from './Components/kids-products/kids-products.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { RegisterComponent } from './Components/register/register.component';
     ProductsComponent,
     NavComponent,
     HomeComponent,
+    WomenProductsComponent,
+    MenProductsComponent,
+    KidsProductsComponent,
   ],
   imports: [
     BrowserModule,
