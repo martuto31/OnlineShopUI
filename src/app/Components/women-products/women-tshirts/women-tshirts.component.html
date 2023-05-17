@@ -1,8 +1,7 @@
 <div class="clothes-container">
-    <div class="clothes-item">Item 1</div>
-    <div class="clothes-item">Item 2</div>
-    <div class="clothes-item">Item 3</div>
-    <!-- Repeat for more items -->
+    <div *ngFor="let product of products">
+        <div class="clothes-item">{{product.name}}</div>
+    </div>
 </div>
 
 <button class="show-more-button">Show More</button>

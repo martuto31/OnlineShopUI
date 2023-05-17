@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getAllProductsByType(type: string): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.apiProductUrl}/GetProductsByType/` + type);
+    return this.http.get<IProduct[]>(`${this.apiProductUrl}/GetProductsByType?type=` + type);
   }
 
   getProductById(id: number): Observable<IProduct> {
