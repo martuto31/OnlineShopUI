@@ -16,12 +16,6 @@ export class ProductsComponent {
 
   }
 
-  getAllProducts(): void {
-    this.productService.getAllProducts().subscribe(products => {
-      this.products = products;
-    });
-  }
-
   getProductById(id: number): any{
     this.productService.getProductById(id).subscribe((product: IProduct) =>{
       this.product = product;

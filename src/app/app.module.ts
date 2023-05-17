@@ -13,6 +13,10 @@ import { RegisterComponent } from './Components/register/register.component';
 import { WomenProductsComponent } from './Components/women-products/women-products.component';
 import { MenProductsComponent } from './Components/men-products/men-products.component';
 import { KidsProductsComponent } from './Components/kids-products/kids-products.component';
+import { WomenTShirtsComponent } from './Components/women-products/women-tshirts/women-tshirts.component';
+import { WomenHoodiesComponent } from './Components/women-products/women-hoodies/women-hoodies.component';
+import { WomenTrousersComponent } from './Components/women-products/women-trousers/women-trousers.component';
+import { WomenShortsComponent } from './Components/women-products/women-shorts/women-shorts.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,10 @@ import { KidsProductsComponent } from './Components/kids-products/kids-products.
     WomenProductsComponent,
     MenProductsComponent,
     KidsProductsComponent,
+    WomenTShirtsComponent,
+    WomenHoodiesComponent,
+    WomenTrousersComponent,
+    WomenShortsComponent,
   ],
   imports: [
     BrowserModule,
