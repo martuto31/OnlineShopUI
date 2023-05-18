@@ -9,11 +9,35 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProductsComponent {
   products: IProduct[] = [];
-  product?: IProduct;
+  product: IProduct = {name: '', id: 0, price: 10, description: 'asd'}
+  selectedImage: File | null = null;
 
-  constructor(private productService: ProductService)
-  {
+  constructor(private productService: ProductService) { }
 
+  onSubmit(): void {
+    const formData: FormData = new FormData();
+    formData.append('name', this.product.name);
+    formData.append('description', this.product.description);
+    formData.append('price', this.product.price.toString());
+    if(this.selectedImage != null)
+    {
+      formData.append('image', this.selectedImage);
+    }
+
+    this.productService.addProduct(formData).subscribe(
+      (response) => {
+        console.log(this.product);
+      },
+      (error) => {
+        console.log(this.product);
+        console.log(error);
+      }
+    );
+  }
+  
+  onImageChange(event: any): void {
+    const file = event.target.files[0];
+    this.selectedImage = file;
   }
 
   getProductById(id: number): any{

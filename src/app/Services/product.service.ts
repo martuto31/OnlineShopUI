@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../Models/IProduct';
@@ -17,5 +17,13 @@ export class ProductService {
 
   getProductById(id: number): Observable<IProduct> {
     return this.http.get<IProduct>(`${this.apiProductUrl}/GetProductById?id=${id}`)
+  }
+
+  
+
+  addProduct(formData: FormData) {
+    // const headers = new HttpHeaders();
+    // headers.append('Content-Type', 'multipart/form-data');
+    return this.http.post(`${this.apiProductUrl}/AddProduct`, formData);
   }
 }
