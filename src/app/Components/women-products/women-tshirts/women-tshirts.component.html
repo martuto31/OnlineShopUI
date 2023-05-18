@@ -1,6 +1,12 @@
 <div class="clothes-container">
     <div *ngFor="let product of products">
-        <div class="clothes-item">{{product.name}}</div>
+        <div class="clothes-item">
+            <img [src]="getBase64ImageUrl(product.pictureData)" class="product-image" alt="Product Image">
+            <div class="product-details">
+                <p>{{product.name}}</p>
+                <p>{{product.price}} лв.</p>
+            </div>
+        </div>
     </div>
 </div>
 

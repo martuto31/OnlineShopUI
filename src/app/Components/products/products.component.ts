@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProductsComponent {
   products: IProduct[] = [];
-  product: IProduct = {name: '', id: 0, price: 10, description: 'asd'}
+  product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, pictureData: ''}
   selectedImage: File | null = null;
 
   constructor(private productService: ProductService) { }
@@ -19,6 +19,8 @@ export class ProductsComponent {
     formData.append('name', this.product.name);
     formData.append('description', this.product.description);
     formData.append('price', this.product.price.toString());
+    formData.append('productType', this.product.productType.toString());
+    formData.append('productTarget', this.product.productTarget.toString());
     if(this.selectedImage != null)
     {
       formData.append('image', this.selectedImage);
