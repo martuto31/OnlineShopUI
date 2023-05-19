@@ -9,8 +9,8 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProductsComponent {
   products: IProduct[] = [];
-  product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, pictureData: ''}
-  selectedImage: File | null = null;
+  product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: []}
+  selectedImages: FileList | null = null;
 
   constructor(private productService: ProductService) { }
 
@@ -21,9 +21,11 @@ export class ProductsComponent {
     formData.append('price', this.product.price.toString());
     formData.append('productType', this.product.productType.toString());
     formData.append('productTarget', this.product.productTarget.toString());
-    if(this.selectedImage != null)
-    {
-      formData.append('image', this.selectedImage);
+
+    if (this.selectedImages && this.selectedImages.length > 0) {
+      for (let i = 0; i < this.selectedImages.length; i++) {
+        formData.append('images', this.selectedImages[i]);
+      }
     }
 
     this.productService.addProduct(formData).subscribe(
@@ -37,9 +39,8 @@ export class ProductsComponent {
     );
   }
   
-  onImageChange(event: any): void {
-    const file = event.target.files[0];
-    this.selectedImage = file;
+  onFileChange(event: any): void {
+    this.selectedImages = event.target.files;
   }
 
   getProductById(id: number): any{

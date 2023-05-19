@@ -29,8 +29,8 @@
     <input type="number" id="type" name="type" [(ngModel)]="product.productType" required>
   </div>
   <div>
-    <label for="image">Image:</label>
-    <input type="file" id="image" name="image" (change)="onImageChange($event)" accept="image/*" required>
+    <label for="images">Images:</label>
+    <input type="file" multiple id="images" name="images" accept="image/*" (change)="onFileChange($event)" required>
   </div>
   <button type="submit">Add Product</button>
 </form>

@@ -20,13 +20,11 @@ export class WomenTrousersComponent implements OnInit{
   public GetProducts(){
     this.productService.getAllProductsByType(this.TShirtValue).subscribe((products: IProduct[]) =>{
       this.products = products;
-      products.forEach(element => {
-        console.log(element.pictureData);
-      });
     })
   }
 
   getBase64ImageUrl(base64String: string): string {
+    console.log()
     return `data:image/jpeg;base64,${base64String}`;
   }
 

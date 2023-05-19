@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class NavComponent {
 
   showLoginForm(){
+    // loading in home
     (document.querySelector('.login-container') as HTMLInputElement).style.display = 'flex';
     (document.querySelector('.home-container') as HTMLInputElement).style.filter = 'blur(.5rem)';
   }

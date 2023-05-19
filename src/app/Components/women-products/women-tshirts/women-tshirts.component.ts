@@ -20,9 +20,6 @@ export class WomenTShirtsComponent implements OnInit{
   public GetProducts(){
     this.productService.getAllProductsByType(this.TShirtValue).subscribe((products: IProduct[]) =>{
       this.products = products;
-      products.forEach(element => {
-        console.log(element.pictureData);
-      });
     })
   }
 
