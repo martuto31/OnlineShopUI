@@ -33,14 +33,29 @@
     <input type="file" multiple id="images" name="images" accept="image/*" (change)="onFileChange($event)" required>
   </div>
   <div>
-    <ng-select  [items]="productSizes"
+    <ng-select [items]="productSizes"
                 name="selectedSizes"
                 bindLabel="size"  
                 placeholder="Select size"  
                 appendTo="body"  
                 [multiple]="true"
-                [closeOnSelect]="false">
+                [closeOnSelect]="false"
                 [(ngModel)]="selectedSizes">  
+    </ng-select>
+  </div>
+  <div>
+    <ng-select  [items]="productColors" 
+                bindLabel="color"
+                name="productColor"
+                placeholder="Select color" 
+                appendTo="body"
+                [multiple]="true" 
+                [(ngModel)]="selectedColors"
+                [closeOnSelect]="false">
+      <ng-template ng-option-tmp let-item="item" let-index="index">
+        <span class="color-option" [ngStyle]="{ 'background-color': item.color }"></span>
+        {{ item.color }}
+      </ng-template>
     </ng-select>  
   </div>
   <button type="submit">Add Product</button>

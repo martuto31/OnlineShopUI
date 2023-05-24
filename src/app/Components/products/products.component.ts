@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { IProduct } from 'src/app/Models/IProduct';
+import { ProductColors } from 'src/app/Models/productColors';
 import { ProductSizes } from 'src/app/Models/productSizes';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -16,7 +17,9 @@ export class ProductsComponent implements OnInit{
   productSizes: ProductSizes[] = [];
   selectedSizes: ProductSizes[] = [];
 
-  productColors: number[] = [];
+  productColors: ProductColors[] = [];
+  selectedColors: ProductColors[] = [];
+
   selectedImages: FileList | null = null;
   productForm: FormGroup;
 
@@ -29,10 +32,10 @@ export class ProductsComponent implements OnInit{
 
   ngOnInit(): void {
     this.getProductSizes();
+    this.getProductColors();
   }
 
   onSubmit(): void {
-    console.log(this.selectedSizes);
     const formData: FormData = new FormData();
     formData.append('name', this.product.name);
     formData.append('description', this.product.description);
@@ -43,6 +46,18 @@ export class ProductsComponent implements OnInit{
     if (this.selectedImages && this.selectedImages.length > 0) {
       for (let i = 0; i < this.selectedImages.length; i++) {
         formData.append('images', this.selectedImages[i]);
+      }
+    }
+
+    if(this.selectedColors && this.selectedColors.length > 0){
+      for(let i = 0; i < this.selectedColors.length; i++){
+        formData.append('colorsIds', this.selectedColors[i].id.toString())
+      }
+    }
+
+    if(this.selectedSizes && this.selectedSizes.length > 0){
+      for(let i = 0; i < this.selectedSizes.length; i++){
+        formData.append('sizesIds', this.selectedSizes[i].id.toString())
       }
     }
 
@@ -64,15 +79,16 @@ export class ProductsComponent implements OnInit{
       this.product = product;
     });
   }
+
   getProductSizes(): any{
     this.productService.getAllProductSizes().subscribe((productSizes: ProductSizes[]) => {
-      this.productSizes = productSizes
+      this.productSizes = productSizes;
     })
   }
 
-  // getSelectedProductSizeIds() {
-  //   return this.productSizes
-  //     .filter(size => size.selected)
-  //     .map(size => size.id);
-  // }
+  getProductColors(): any{
+    this.productService.getAllProductColors().subscribe((productColors: ProductColors[]) => {
+      this.productColors = productColors;
+    })
+  }
 }
