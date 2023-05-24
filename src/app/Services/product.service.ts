@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../Models/IProduct';
 import { ProductSizes } from '../Models/productSizes';
+import { ProductColors } from '../Models/productColors';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class ProductService {
   
   getAllProductSizes(): Observable<ProductSizes[]> {
     return this.http.get<ProductSizes[]>(`${this.apiProductUrl}/GetAllProductSizes`);
+  }
+
+  getAllProductColors(): Observable<ProductColors[]>{
+    return this.http.get<ProductColors[]>(`${this.apiProductUrl}/GetAllProductColors`);
   }
 
   addProduct(formData: FormData) {
