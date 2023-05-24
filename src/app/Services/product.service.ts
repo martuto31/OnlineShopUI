@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IProduct } from '../Models/IProduct';
+import { ProductSizes } from '../Models/productSizes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,12 @@ export class ProductService {
   }
 
   getProductById(id: number): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.apiProductUrl}/GetProductById?id=${id}`)
+    return this.http.get<IProduct>(`${this.apiProductUrl}/GetProductById?id=${id}`);
   }
-
   
+  getAllProductSizes(): Observable<ProductSizes[]> {
+    return this.http.get<ProductSizes[]>(`${this.apiProductUrl}/GetAllProductSizes`);
+  }
 
   addProduct(formData: FormData) {
     // const headers = new HttpHeaders();

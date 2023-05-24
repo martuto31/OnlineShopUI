@@ -18,6 +18,8 @@ import { WomenHoodiesComponent } from './Components/women-products/women-hoodies
 import { WomenTrousersComponent } from './Components/women-products/women-trousers/women-trousers.component';
 import { WomenShortsComponent } from './Components/women-products/women-shorts/women-shorts.component';
 import { ProductDetailsComponent } from './Components/products/details/product-details/product-details.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { ProductDetailsComponent } from './Components/products/details/product-d
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

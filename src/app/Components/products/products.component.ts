@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { IProduct } from 'src/app/Models/IProduct';
+import { ProductSizes } from 'src/app/Models/productSizes';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -8,14 +10,29 @@ import { ProductService } from 'src/app/Services/product.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
-  products: IProduct[] = [];
-  product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
-  selectedImages: FileList | null = null;
+export class ProductsComponent implements OnInit{
+  product: IProduct = {name: '', id: 0, price: 0, description: '', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
 
-  constructor(private productService: ProductService, private imageCompress: NgxImageCompressService) { }
+  productSizes: ProductSizes[] = [];
+  selectedSizes: ProductSizes[] = [];
+
+  productColors: number[] = [];
+  selectedImages: FileList | null = null;
+  productForm: FormGroup;
+
+  constructor(private productService: ProductService, private imageCompress: NgxImageCompressService, private formBuilder: FormBuilder) {
+    this.productForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      sizes: this.formBuilder.array([])
+    });
+   }
+
+  ngOnInit(): void {
+    this.getProductSizes();
+  }
 
   onSubmit(): void {
+    console.log(this.selectedSizes);
     const formData: FormData = new FormData();
     formData.append('name', this.product.name);
     formData.append('description', this.product.description);
@@ -31,10 +48,8 @@ export class ProductsComponent {
 
     this.productService.addProduct(formData).subscribe(
       (response) => {
-        console.log(this.product);
       },
       (error) => {
-        console.log(this.product);
         console.log(error);
       }
     );
@@ -49,17 +64,15 @@ export class ProductsComponent {
       this.product = product;
     });
   }
+  getProductSizes(): any{
+    this.productService.getAllProductSizes().subscribe((productSizes: ProductSizes[]) => {
+      this.productSizes = productSizes
+    })
+  }
 
-  // compressImage(file: File): void {
-  //   const reader = new FileReader();
-  //   reader.onload = (event: any) => {
-  //     const dataUrl = event.target.result;
-  //     this.imageCompress.compressFile(dataUrl, -1, 50, 50).then(result => {
-  //       // Compressed image is available in 'result' variable
-  //       console.log(result);
-  //     });
-  //   };
-    //reader.readAsDataURL(file);
+  // getSelectedProductSizeIds() {
+  //   return this.productSizes
+  //     .filter(size => size.selected)
+  //     .map(size => size.id);
   // }
-
 }

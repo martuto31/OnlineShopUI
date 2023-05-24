@@ -1,5 +1,3 @@
-import { ProductSizes } from "./product-size";
-
 export interface IProduct {
     id: number;
     name: string;

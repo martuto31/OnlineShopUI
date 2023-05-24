@@ -64,3 +64,5 @@ html,body
     height: 60vh;
     margin: auto;
 }
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
