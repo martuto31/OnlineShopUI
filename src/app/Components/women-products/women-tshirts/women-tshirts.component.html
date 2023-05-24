@@ -1,6 +1,6 @@
 <div class="clothes-container">
     <div *ngFor="let product of products">
-        <div class="clothes-item">
+        <div (click)="redirectToDetails(product.id)" class="clothes-item">
             <img [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
             <div class="product-details">
                 <p>{{product.name}}</p>

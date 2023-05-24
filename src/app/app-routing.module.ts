@@ -9,12 +9,14 @@ import { WomenHoodiesComponent } from './Components/women-products/women-hoodies
 import { WomenTrousersComponent } from './Components/women-products/women-trousers/women-trousers.component';
 import { WomenShortsComponent } from './Components/women-products/women-shorts/women-shorts.component';
 import { ProductsComponent } from './Components/products/products.component';
+import { ProductDetailsComponent } from './Components/products/details/product-details/product-details.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'AddProduct', component: ProductsComponent},
+  {path: 'Product/:id', component: ProductDetailsComponent},
   {path: 'Women', component: WomenProductsComponent, children:[
     {path:'TShirts', component: WomenTShirtsComponent},
     {path:'Hoodies', component: WomenHoodiesComponent},

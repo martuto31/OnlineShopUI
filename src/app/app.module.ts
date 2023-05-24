@@ -17,6 +17,7 @@ import { WomenTShirtsComponent } from './Components/women-products/women-tshirts
 import { WomenHoodiesComponent } from './Components/women-products/women-hoodies/women-hoodies.component';
 import { WomenTrousersComponent } from './Components/women-products/women-trousers/women-trousers.component';
 import { WomenShortsComponent } from './Components/women-products/women-shorts/women-shorts.component';
+import { ProductDetailsComponent } from './Components/products/details/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { WomenShortsComponent } from './Components/women-products/women-shorts/w
     WomenHoodiesComponent,
     WomenTrousersComponent,
     WomenShortsComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

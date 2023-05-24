@@ -1,3 +1,5 @@
+import { ProductSizes } from "./product-size";
+
 export interface IProduct {
     id: number;
     name: string;
@@ -6,4 +8,6 @@ export interface IProduct {
     picturesData: string[];
     productTarget: number;
     productType: number;
+    productSizes: string[];
+    productColors: string[];
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxImageCompressService } from 'ngx-image-compress';
 import { IProduct } from 'src/app/Models/IProduct';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -9,10 +10,10 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class ProductsComponent {
   products: IProduct[] = [];
-  product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: []}
+  product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
   selectedImages: FileList | null = null;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private imageCompress: NgxImageCompressService) { }
 
   onSubmit(): void {
     const formData: FormData = new FormData();
@@ -48,4 +49,17 @@ export class ProductsComponent {
       this.product = product;
     });
   }
+
+  // compressImage(file: File): void {
+  //   const reader = new FileReader();
+  //   reader.onload = (event: any) => {
+  //     const dataUrl = event.target.result;
+  //     this.imageCompress.compressFile(dataUrl, -1, 50, 50).then(result => {
+  //       // Compressed image is available in 'result' variable
+  //       console.log(result);
+  //     });
+  //   };
+    //reader.readAsDataURL(file);
+  // }
+
 }

@@ -13,7 +13,6 @@ export class WomenTShirtsComponent implements OnInit{
   constructor(private router: Router, private productService: ProductService) {}
 
   products: IProduct[] = [];
-
   
   TShirtValue: string = WomenProductsConstant.TShirts;
 
@@ -25,6 +24,10 @@ export class WomenTShirtsComponent implements OnInit{
 
   getBase64ImageUrl(base64String: string): string {
     return `data:image/jpeg;base64,${base64String}`;
+  }
+
+  redirectToDetails(id: number){
+    this.router.navigate(['/Product/' + id])
   }
 
   ngOnInit(): void {
