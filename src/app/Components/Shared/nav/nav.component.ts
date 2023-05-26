@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavService } from 'src/app/Services/nav.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,14 +9,21 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  constructor(private router: Router, private navService: NavService) { }
+
   showLoginForm(){
-    // loading in home
+    const currentRoute = this.router.url;
+
     (document.querySelector('.login-container') as HTMLInputElement).style.display = 'flex';
-    (document.querySelector('.home-container') as HTMLInputElement).style.filter = 'blur(.5rem)';
+
+    this.navService.blurBackground(currentRoute);
   }
 
   showRegisterForm(){
+    const currentRoute = this.router.url;
+    
     (document.querySelector('.register-container') as HTMLInputElement).style.display = 'flex';
-    (document.querySelector('.home-container') as HTMLInputElement).style.filter = 'blur(.5rem)';
+
+    this.navService.blurBackground(currentRoute);
   }
 }

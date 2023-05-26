@@ -30,8 +30,6 @@ export class ProductService {
   }
 
   addProduct(formData: FormData) {
-    // const headers = new HttpHeaders();
-    // headers.append('Content-Type', 'multipart/form-data');
     return this.http.post(`${this.apiProductUrl}/AddProduct`, formData);
   }
 }

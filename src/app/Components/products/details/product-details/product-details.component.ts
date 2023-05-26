@@ -16,7 +16,8 @@ export class ProductDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     this.getProductById(this.productId);
-    console.log(this.product.productSizes)
+    
+    (document.querySelector(".navbar") as HTMLInputElement).style.display = 'none';
   }
 
   getProductById(id: number): any{

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavService } from 'src/app/Services/nav.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent
   username: string = "";
   password: string = "";
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService, private navService: NavService) {}
 
   public onSubmit(): void 
   {
@@ -29,7 +30,9 @@ export class LoginComponent
 
   public closePopUp()
   {
+    const currentRoute = this.router.url;
+    this.navService.removeBlur(currentRoute);
+    
     (document.querySelector('.login-container') as HTMLInputElement).style.display = 'none';
-    (document.querySelector('.home-container') as HTMLInputElement).style.filter = 'blur(0)';
   }
 };

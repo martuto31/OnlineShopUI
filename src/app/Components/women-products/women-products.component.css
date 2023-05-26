@@ -44,4 +44,5 @@
     flex-direction: column;
     margin-top: 15vh;
     margin-left: 300px;
+    filter: blur(0);
   }
