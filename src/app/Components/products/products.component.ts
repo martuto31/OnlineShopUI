@@ -51,13 +51,13 @@ export class ProductsComponent implements OnInit{
 
     if(this.selectedColors && this.selectedColors.length > 0){
       for(let i = 0; i < this.selectedColors.length; i++){
-        formData.append('colorsIds', this.selectedColors[i].id.toString())
+        formData.append('productColors', this.selectedColors[i].id.toString())
       }
     }
 
     if(this.selectedSizes && this.selectedSizes.length > 0){
       for(let i = 0; i < this.selectedSizes.length; i++){
-        formData.append('sizesIds', this.selectedSizes[i].id.toString())
+        formData.append('productSizes', this.selectedSizes[i].id.toString())
       }
     }
 

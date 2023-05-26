@@ -1,62 +1,59 @@
-<!-- <button (click)="getAllProducts()">Get All Products</button>
+<app-nav></app-nav>
 
-<div *ngFor="let product of products">
-  <h3>{{product.name}}</h3>
-  <p>{{product.description}}</p>
-  <p>Price: {{product.price}}</p>
-  <button (click)="getProductById(product.id)">View Product</button>
-</div> -->
-
-<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="product.name" required>
+<div class="add-product-container">
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="product.name" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="product.description" required></textarea>
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="product.price" required>
+      </div>
+      <div>
+        <label for="target">Target:</label>
+        <input type="number" id="target" name="target" [(ngModel)]="product.productTarget" required>
+      </div>
+      <div>
+        <label for="type">Type:</label>
+        <input type="number" id="type" name="type" [(ngModel)]="product.productType" required>
+      </div>
+      <div>
+        <label for="images">Images:</label>
+        <input type="file" multiple id="images" name="images" accept="image/*" (change)="onFileChange($event)" required>
+      </div>
+      <div>
+        <ng-select [items]="productSizes"
+                    name="selectedSizes"
+                    bindLabel="size"  
+                    placeholder="Select size"  
+                    appendTo="body"  
+                    [multiple]="true"
+                    [closeOnSelect]="false"
+                    [(ngModel)]="selectedSizes">  
+        </ng-select>
+      </div>
+      <div>
+        <ng-select  [items]="productColors" 
+                    bindLabel="color"
+                    name="productColor"
+                    placeholder="Select color" 
+                    appendTo="body"
+                    [multiple]="true" 
+                    [(ngModel)]="selectedColors"
+                    [closeOnSelect]="false">
+          <ng-template ng-option-tmp let-item="item" let-index="index">
+            <span class="color-option" [ngStyle]="{ 'background-color': item.color }"></span>
+            {{ item.color }}
+          </ng-template>
+        </ng-select>  
+      </div>
+      <button type="submit">Add Product</button>
+    </form>
   </div>
-  <div>
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" [(ngModel)]="product.description" required></textarea>
-  </div>
-  <div>
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" [(ngModel)]="product.price" required>
-  </div>
-  <div>
-    <label for="target">Target:</label>
-    <input type="number" id="target" name="target" [(ngModel)]="product.productTarget" required>
-  </div>
-  <div>
-    <label for="type">Type:</label>
-    <input type="number" id="type" name="type" [(ngModel)]="product.productType" required>
-  </div>
-  <div>
-    <label for="images">Images:</label>
-    <input type="file" multiple id="images" name="images" accept="image/*" (change)="onFileChange($event)" required>
-  </div>
-  <div>
-    <ng-select [items]="productSizes"
-                name="selectedSizes"
-                bindLabel="size"  
-                placeholder="Select size"  
-                appendTo="body"  
-                [multiple]="true"
-                [closeOnSelect]="false"
-                [(ngModel)]="selectedSizes">  
-    </ng-select>
-  </div>
-  <div>
-    <ng-select  [items]="productColors" 
-                bindLabel="color"
-                name="productColor"
-                placeholder="Select color" 
-                appendTo="body"
-                [multiple]="true" 
-                [(ngModel)]="selectedColors"
-                [closeOnSelect]="false">
-      <ng-template ng-option-tmp let-item="item" let-index="index">
-        <span class="color-option" [ngStyle]="{ 'background-color': item.color }"></span>
-        {{ item.color }}
-      </ng-template>
-    </ng-select>  
-  </div>
-  <button type="submit">Add Product</button>
-</form>
+</div>

@@ -1,45 +1,59 @@
+.add-product-container{
+  background-color: lightblue;
+}
+
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  div {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input,
-  textarea {
-    width: 100%;
-  }
-  
-  button {
-    padding: 10px 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  margin: auto;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 10px;
+}
 
-  .color-option {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .ng-select .ng-placeholder {
-    color: #999;
-  }
+form div {
+  margin-bottom: 10px;
+}
 
-  .ng-dropdown-panel {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-  }
+form label {
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+}
+
+form button {
+  padding: 10px 20px;
+}
+
+.color-option {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+
+.ng-select .ng-placeholder {
+  color: #999;
+}
+
+.ng-dropdown-panel {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
