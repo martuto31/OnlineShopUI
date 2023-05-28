@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { User } from '../Models/user.model';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class UserService {
     return this.http.post<any>(`${this.apiUserUrl}/Register`, user);
   }
 
-  loginUser(username: string, password: string): Observable<User> {
-    return this.http.post<any>(`${this.apiUserUrl}/Login`, {username, password});
+  loginUser(username: string, password: string): Observable<string> {
+    return this.http.post(`${this.apiUserUrl}/Login`, {username, password}, { responseType: 'text' });
   }
 }

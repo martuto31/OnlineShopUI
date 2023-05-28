@@ -13,6 +13,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  private token = localStorage.getItem('token');
+  private headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  private options = { headers: this.headers };
+
   getAllProductsByType(type: string): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(`${this.apiProductUrl}/GetProductsByType?type=` + type);
   }
@@ -30,6 +34,6 @@ export class ProductService {
   }
 
   addProduct(formData: FormData) {
-    return this.http.post(`${this.apiProductUrl}/AddProduct`, formData);
+    return this.http.post(`${this.apiProductUrl}/AddProduct`, formData, this.options);
   }
 }
