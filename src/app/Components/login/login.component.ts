@@ -19,8 +19,9 @@ export class LoginComponent
   {
       this.userService
       .loginUser(this.username, this.password)
-      .subscribe(() => 
+      .subscribe((response) => 
       {
+        localStorage.setItem('token', response);
         this.closePopUp();
       }, err => 
       {
@@ -32,7 +33,7 @@ export class LoginComponent
   {
     const currentRoute = this.router.url;
     this.navService.removeBlur(currentRoute);
-    
+
     (document.querySelector('.login-container') as HTMLInputElement).style.display = 'none';
   }
 };
