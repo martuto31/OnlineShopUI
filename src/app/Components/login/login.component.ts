@@ -22,6 +22,9 @@ export class LoginComponent
       .subscribe((response) => 
       {
         localStorage.setItem('token', response);
+
+        this.userService.setAuthenticated(true);
+        
         this.closePopUp();
       }, err => 
       {

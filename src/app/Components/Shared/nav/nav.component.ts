@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavService } from 'src/app/Services/nav.service';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,15 @@ import { NavService } from 'src/app/Services/nav.service';
 })
 export class NavComponent {
 
-  constructor(private router: Router, private navService: NavService) { }
+  constructor(private router: Router, private navService: NavService, private userService: UserService) { }
+
+  isAuthenticated: boolean = false;
+
+  ngOnInit() {
+    this.userService.isAuthenticated$.subscribe((isAuthenticated) => {
+      this.isAuthenticated = isAuthenticated;
+    });
+  }
 
   showLoginForm(){
     const currentRoute = this.router.url;
@@ -21,9 +30,17 @@ export class NavComponent {
 
   showRegisterForm(){
     const currentRoute = this.router.url;
-    
+
     (document.querySelector('.register-container') as HTMLInputElement).style.display = 'flex';
 
     this.navService.blurBackground(currentRoute);
+  }
+
+  logout(){
+    this.isAuthenticated = false;
+
+    localStorage.removeItem('token');
+
+    this.showLoginForm();
   }
 }

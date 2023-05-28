@@ -13,12 +13,24 @@
       <a class="nav-link" href="#">Kids</a>
     </li>
   </ul>
-  <ul class="navbar-nav mr-10">
-    <li class="nav-item">
-      <a class="nav-link" (click)="showLoginForm()">Login</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="showRegisterForm()">Register</a>
-    </li>
-  </ul>
+  <div *ngIf="!isAuthenticated">
+    <ul class="navbar-nav mr-10">
+      <li class="nav-item">
+        <a class="nav-link" (click)="showLoginForm()">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="showRegisterForm()">Register</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="isAuthenticated">
+    <ul class="navbar-nav mr-10">
+      <li class="nav-item">
+        <a class="nav-link">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
 </nav>
