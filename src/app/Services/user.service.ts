@@ -12,6 +12,9 @@ export class UserService {
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
+  private isAdminSubject = new BehaviorSubject<boolean>(false);
+  public isAdmin$ = this.isAdminSubject.asObservable();
+
   constructor(private http: HttpClient) { }
 
   registerUser(user: User): Observable<User> {
@@ -22,7 +25,15 @@ export class UserService {
     return this.http.post(`${this.apiUserUrl}/Login`, {username, password}, { responseType: 'text' });
   }
 
-  setAuthenticated(auth: boolean): any{
-    this.isAuthenticatedSubject.next(auth);
+  setAuthenticated(isAuthenticated: boolean): any{
+    this.isAuthenticatedSubject.next(isAuthenticated);
+  }
+
+  checkIfAdmin(): any{
+    var role = localStorage.getItem('role');
+    if(role === "Admin")
+    {
+      this.isAdminSubject.next(true);
+    }
   }
 }

@@ -13,10 +13,15 @@ export class NavComponent {
   constructor(private router: Router, private navService: NavService, private userService: UserService) { }
 
   isAuthenticated: boolean = false;
+  isAdmin: boolean = false;
 
   ngOnInit() {
     this.userService.isAuthenticated$.subscribe((isAuthenticated) => {
       this.isAuthenticated = isAuthenticated;
+    });
+
+    this.userService.isAdmin$.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
     });
   }
 

@@ -25,8 +25,11 @@
   </div>
   <div *ngIf="isAuthenticated">
     <ul class="navbar-nav mr-10">
-      <li class="nav-item">
+      <li *ngIf="!isAdmin" class="nav-item">
         <a class="nav-link">Cart</a>
+      </li>
+      <li *ngIf="isAdmin" class="nav-item">
+        <a class="nav-link">Manage products</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">Logout</a>

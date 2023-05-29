@@ -20,6 +20,7 @@
     "@angular/router": "^15.2.0",
     "@ng-select/ng-select": "^10.0.4",
     "image-compressor": "^2.0.3",
+    "jwt-decode": "^3.1.2",
     "ng-multiselect-dropdown": "^0.3.9",
     "ngx-image-compress": "^15.1.5",
     "rxjs": "~7.8.0",
