@@ -28,8 +28,15 @@
       <li *ngIf="!isAdmin" class="nav-item">
         <a class="nav-link">Cart</a>
       </li>
-      <li *ngIf="isAdmin" class="nav-item">
-        <a class="nav-link">Manage products</a>
+      <li *ngIf="isAdmin" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="manageProductsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manage Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="manageProductsDropdown">
+          <a class="dropdown-item" >Edit</a>
+          <a class="dropdown-item" routerLink="/AddProduct">Add</a>
+          <a class="dropdown-item" >Delete</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">Logout</a>
