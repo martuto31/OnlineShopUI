@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Cart } from 'src/app/Models/Cart';
 import { IProduct } from 'src/app/Models/IProduct';
 import { ProductService } from 'src/app/Services/product.service';
 
@@ -13,11 +14,19 @@ export class ProductDetailsComponent implements OnInit{
 
   productId: number = this.route.snapshot.params['id'];
   product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
+  cart: Cart = {
+    products: []
+  };
 
   ngOnInit(): void {
     this.getProductById(this.productId);
     
     (document.querySelector(".navbar") as HTMLInputElement).style.display = 'none';
+
+    const storedCart = localStorage.getItem('cart');
+    if(storedCart != null){
+      this.cart = storedCart ? JSON.parse(storedCart) : [];
+    }
   }
 
   getProductById(id: number): any{
@@ -28,6 +37,12 @@ export class ProductDetailsComponent implements OnInit{
 
   getBase64ImageUrl(base64String: string): string {
     return `data:image/jpeg;base64,${base64String}`;
+  }
+
+  addToCart(): void {
+    this.cart.products.push(this.product);
+
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
   enumToArr(value: any): any[] {
