@@ -10,11 +10,13 @@ import { WomenTrousersComponent } from './Components/women-products/women-trouse
 import { WomenShortsComponent } from './Components/women-products/women-shorts/women-shorts.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { ProductDetailsComponent } from './Components/products/details/product-details/product-details.component';
+import { CartComponent } from './Components/products/cart/cart.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegisterComponent},
+  {path: 'Cart', component: CartComponent},
   {path: 'AddProduct', component: ProductsComponent},
   {path: 'Product/:id', component: ProductDetailsComponent},
   {path: 'Women', component: WomenProductsComponent, children:[

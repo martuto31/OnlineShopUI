@@ -1,0 +1,22 @@
+<div class="cart-container">
+    <div class="cart-products-container">
+        <div class="cart-product" *ngFor="let item of cart.products">
+            <div class="picture-container">
+                <img [src]="getBase64ImageUrl(item.picturesData[0])" alt="Product Image">
+            </div>
+            <div class="description-container">
+                <p class="name">{{item.name}}</p>
+                <p class="description">{{item.description}}</p>
+                <p class="size">{{item.productSizes[0]}}</p>
+                <p class="color">{{item.productColors[0]}}</p>
+                <button class="remove-btn" (click)="removeFromCart(item.id)">Remove</button>
+            </div>
+            <div class="price">
+                <p>{{item.price}} лв.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cart-order-container">
+        <p>asd</p>
+    </div>
+</div>
