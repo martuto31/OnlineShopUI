@@ -43,7 +43,7 @@
     padding-bottom: 0.75rem;
     margin-left: 1.25rem;
     font-size: 0.85rem;
-    line-height: 1.33;
+    line-height: 1;
     letter-spacing: normal;
     font-weight: 500;
     color: rgb(0, 0, 0);
@@ -60,8 +60,34 @@
     margin-inline: 10%;
 }
 
+.cart-order{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 15vh;
+    width: 70%;
+    padding: 3rem;
+    margin: 1rem;
+
+    border: 1px solid rgb(229, 229, 229);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 4px 0px, rgba(0, 0, 0, 0.04) 0px 10px 15px 0px;
+
+    position: sticky;
+
+    place-content: center space-between;
+}
+
 .name{
     font-weight: 900;
+    margin-bottom: 0.7rem;
+}
+
+.price-container{
+    display: flex;
+    flex-flow: row nowrap;
+
+    place-content: center space-between;
 }
 
 .price{
@@ -78,6 +104,43 @@
     padding-bottom: 12px;
 }
 
+.total{
+    font-family: Inter,"Inter Fallback",sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-weight: 600;
+}
+
+.total-price{
+    font-family: Inter,"Inter Fallback",sans-serif;
+    font-size: 1.25rem;
+}
+
+.order-btn-container{
+    width: 100%;
+}
+
+.order-btn{
+    width: 100%;
+    animation: 0.3s ease 1s 1 normal none running shake-animation;
+    background-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    outline: none;
+    margin: 0px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 0px;
+    padding: 16px 30px;
+}
+
+.order-btn:hover{
+    background-color: black;
+}
+
 .remove-btn{
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -87,4 +150,5 @@
     text-decoration: none;
     border: 0px;
     padding: 0;
+    margin-top: 3.5rem;
 }

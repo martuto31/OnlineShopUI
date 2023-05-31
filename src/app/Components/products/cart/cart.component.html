@@ -9,7 +9,7 @@
                 <p class="description">{{item.description}}</p>
                 <p class="size">{{item.productSizes[0]}}</p>
                 <p class="color">{{item.productColors[0]}}</p>
-                <button class="remove-btn" (click)="removeFromCart(item.id)">Remove</button>
+                <button class="remove-btn" (click)="removeFromCart(item.id)">&#10005; Remove</button>
             </div>
             <div class="price">
                 <p>{{item.price}} лв.</p>
@@ -17,6 +17,14 @@
         </div>
     </div>
     <div class="cart-order-container">
-        <p>asd</p>
+        <div class="cart-order">
+            <div class="price-container">
+                <p class="total">Total</p>
+                <p class="total-price">{{totalPrice}} лв.</p>
+            </div>
+            <div class="order-btn-container">
+                <button class="order-btn">Order</button>
+            </div>
+        </div>
     </div>
 </div>
