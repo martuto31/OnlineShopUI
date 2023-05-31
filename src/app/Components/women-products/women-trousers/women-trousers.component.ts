@@ -13,19 +13,21 @@ export class WomenTrousersComponent implements OnInit{
   constructor(private router: Router, private productService: ProductService) {}
 
   products: IProduct[] = [];
-
   
-  TShirtValue: string = WomenProductsConstant.TShirts;
+  TrousersValue: string = WomenProductsConstant.Trousers;
 
   public GetProducts(){
-    this.productService.getAllProductsByType(this.TShirtValue).subscribe((products: IProduct[]) =>{
+    this.productService.getAllProductsByType(this.TrousersValue).subscribe((products: IProduct[]) =>{
       this.products = products;
     })
   }
 
   getBase64ImageUrl(base64String: string): string {
-    console.log()
     return `data:image/jpeg;base64,${base64String}`;
+  }
+
+  redirectToDetails(id: number){
+    this.router.navigate(['/Product/' + id])
   }
 
   ngOnInit(): void {

@@ -21,6 +21,11 @@ import { ProductDetailsComponent } from './Components/products/details/product-d
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CartComponent } from './Components/products/cart/cart.component';
+import { AComponent } from './Components/a/a.component';
+import { MenHoodiesComponent } from './Components/men-hoodies/men-hoodies.component';
+import { MenShortsComponent } from './Components/men-products/men-shorts/men-shorts.component';
+import { MenTrousersComponent } from './Components/men-products/men-trousers/men-trousers.component';
+import { MenTshirtsComponent } from './Components/men-products/men-tshirts/men-tshirts.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,11 @@ import { CartComponent } from './Components/products/cart/cart.component';
     WomenShortsComponent,
     ProductDetailsComponent,
     CartComponent,
+    AComponent,
+    MenHoodiesComponent,
+    MenShortsComponent,
+    MenTrousersComponent,
+    MenTshirtsComponent,
   ],
   imports: [
     BrowserModule,
