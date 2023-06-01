@@ -45,6 +45,8 @@ export class NavComponent {
     this.isAuthenticated = false;
 
     localStorage.removeItem('token');
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('isAdmin');
 
     this.showLoginForm();
   }

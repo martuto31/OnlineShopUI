@@ -21,6 +21,7 @@ import { ProductDetailsComponent } from './Components/products/details/product-d
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CartComponent } from './Components/products/cart/cart.component';
+import { EditProductsComponent } from './Components/products/edit-products/edit-products.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CartComponent } from './Components/products/cart/cart.component';
     WomenShortsComponent,
     ProductDetailsComponent,
     CartComponent,
+    EditProductsComponent,
   ],
   imports: [
     BrowserModule,

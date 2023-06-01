@@ -11,6 +11,7 @@ import { WomenShortsComponent } from './Components/women-products/women-shorts/w
 import { ProductsComponent } from './Components/products/products.component';
 import { ProductDetailsComponent } from './Components/products/details/product-details/product-details.component';
 import { CartComponent } from './Components/products/cart/cart.component';
+import { EditProductsComponent } from './Components/products/edit-products/edit-products.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'Cart', component: CartComponent},
   {path: 'AddProduct', component: ProductsComponent},
   {path: 'Product/:id', component: ProductDetailsComponent},
+  {path: 'Edit/:id', component: EditProductsComponent},
   {path: 'Women', component: WomenProductsComponent, children:[
     {path:'TShirts', component: WomenTShirtsComponent},
     {path:'Hoodies', component: WomenHoodiesComponent},

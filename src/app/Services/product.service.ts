@@ -36,4 +36,8 @@ export class ProductService {
   addProduct(formData: FormData) {
     return this.http.post(`${this.apiProductUrl}/AddProduct`, formData, this.options);
   }
+
+  editProduct(formData: FormData){
+    return this.http.put(`${this.apiProductUrl}/UpdateProduct`, formData, this.options);
+  }
 }

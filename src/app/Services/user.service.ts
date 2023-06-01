@@ -7,7 +7,7 @@ import { User } from '../Models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUserUrl = 'https://localhost:7260/api/User';
+  private apiUserUrl = 'https://localhost:7260/api/User'; 
   
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
@@ -15,7 +15,10 @@ export class UserService {
   private isAdminSubject = new BehaviorSubject<boolean>(false);
   public isAdmin$ = this.isAdminSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.isAuthenticatedSubject.next(localStorage.getItem('isAuthenticated') === 'true');
+    this.isAdminSubject.next(localStorage.getItem('isAdmin') === 'true');
+   }
 
   registerUser(user: User): Observable<User> {
     return this.http.post<any>(`${this.apiUserUrl}/Register`, user);
@@ -27,6 +30,7 @@ export class UserService {
 
   setAuthenticated(isAuthenticated: boolean): any{
     this.isAuthenticatedSubject.next(isAuthenticated);
+    localStorage.setItem('isAuthenticated', isAuthenticated.toString());
   }
 
   checkIfAdmin(): any{
@@ -34,6 +38,7 @@ export class UserService {
     if(role === "Admin")
     {
       this.isAdminSubject.next(true);
+      localStorage.setItem('isAdmin', 'true');
     }
   }
 }
