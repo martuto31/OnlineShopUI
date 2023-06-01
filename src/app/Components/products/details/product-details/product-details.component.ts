@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/Models/Cart';
 import { IProduct } from 'src/app/Models/IProduct';
 import { ProductService } from 'src/app/Services/product.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit{
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute, private location: Location) { }
 
   productId: number = this.route.snapshot.params['id'];
   product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
@@ -48,5 +49,9 @@ export class ProductDetailsComponent implements OnInit{
   enumToArr(value: any): any[] {
     const keys = Object.keys(value);
     return keys.slice(keys.length / 2);
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

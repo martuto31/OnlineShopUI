@@ -1,3 +1,7 @@
+<button class="back-btn" (click)="goBack()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    Back
+</button>
 <div class="product-details-container">
     <div class="product-images">
         <div class="slideshow">
@@ -36,18 +40,3 @@
       <button class="add-to-cart-button" (click)="addToCart()">Add to Cart</button>
     </div>
 </div>
-  <!-- <app-nav></app-nav>
-  <div class="container">
-    <div class="slideshow-container">
-        <div class="slideshow-main-picture">
-            <img [src]="getBase64ImageUrl(product.picturesData[0])" alt="Main Product Image">
-        </div>
-        <div class="slideshow-secondary-pictures" *ngFor="let image of product.picturesData; let i = index">
-            <img [src]="getBase64ImageUrl(product.picturesData[i])" alt="Product Image">
-            <P>{{i}}</P>
-        </div>
-    </div>
-    <div class="info-container">
-
-    </div>
-  </div> -->
