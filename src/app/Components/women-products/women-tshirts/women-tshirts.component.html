@@ -1,13 +1,13 @@
 <div class="clothes-container">
     <div *ngFor="let product of products">
-        <div (click)="redirectToDetails(product.id)" class="clothes-item">
+        <div class="clothes-item">
             <div>
-                <img [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
+                <img (click)="redirectToDetails(product.id)" [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
                 <div class="admin-options" *ngIf="isAdmin">
-                    <button class="admin-btn-edit">
+                    <button (click)="editProduct(product.id)" class="admin-btn-edit">
                         Edit
                     </button>
-                    <button class="admin-btn-delete">
+                    <button (click)="deleteProduct(product.id)" class="admin-btn-delete">
                         Delete
                     </button>
                 </div>

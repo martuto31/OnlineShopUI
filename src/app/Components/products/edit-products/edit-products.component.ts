@@ -13,7 +13,8 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./edit-products.component.css']
 })
 export class EditProductsComponent {
-  product: IProduct = {name: '', id: 0, price: 0, description: '', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
+  productId: number = this.route.snapshot.params['id'];
+  product: IProduct = {name: '', id: this.productId, price: 0, description: '', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
 
   productSizes: ProductSizes[] = [];
   selectedSizes: ProductSizes[] = [];
@@ -30,8 +31,6 @@ export class EditProductsComponent {
       sizes: this.formBuilder.array([])
     });
    }
-
-   productId: number = this.route.snapshot.params['id'];
 
   ngOnInit(): void {
     this.getProductSizes();

@@ -38,4 +38,18 @@ export class WomenTrousersComponent implements OnInit{
   redirectToDetails(id: number){
     this.router.navigate(['/Product/' + id])
   }
+
+  deleteProduct(id: number){
+    console.log(id);
+    this.productService.deleteProduct(id).subscribe(
+      () => {
+        // Product deleted successfully, update the product list
+        this.products = this.products.filter(product => product.id !== id);
+      }
+    );
+  }
+
+  editProduct(id: number){
+    this.router.navigate([`/Edit/${id}`]);
+  }
 }
