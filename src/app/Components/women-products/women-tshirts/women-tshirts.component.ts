@@ -38,4 +38,5 @@ export class WomenTShirtsComponent implements OnInit{
   redirectToDetails(id: number){
     this.router.navigate(['/Product/' + id])
   }
+
 }

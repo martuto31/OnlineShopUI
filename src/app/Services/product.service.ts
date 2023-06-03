@@ -40,4 +40,8 @@ export class ProductService {
   editProduct(formData: FormData){
     return this.http.put(`${this.apiProductUrl}/UpdateProduct`, formData, this.options);
   }
+
+  deleteProduct(id: number){
+    return this.http.delete(`${this.apiProductUrl}/RemoveProduct?id=${id}`, this.options);
+  }
 }
