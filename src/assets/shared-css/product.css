@@ -8,6 +8,12 @@
     background-color: white;
     text-align: center;
     margin-top: 10px;
+
+    transition: .2s linear;
+  }
+
+  .clothes-item:hover{
+    transform: scale(1.1);
   }
   
   .show-more-button {
@@ -34,4 +40,42 @@
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: .075rem;
+}
+
+.admin-options{
+  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  gap: 4px;
+}
+
+.admin-btn-edit{
+  color: white;
+  font-family: Inter,"Inter Fallback",sans-serif;
+  font-size: 1.1rem;
+  grid-column: 1;
+  padding: .6rem;
+  background-color: rgb(29, 29, 29);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn-delete{
+  color: white;
+  font-family: Inter,"Inter Fallback",sans-serif;
+  font-size: 1.1rem;
+  grid-column: 2;
+  padding: .6rem;
+  background-color: rgb(29, 29, 29);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn-edit:hover, .admin-btn-delete:hover{
+  background-color: black;
 }

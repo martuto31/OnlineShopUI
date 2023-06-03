@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ProductService } from 'src/app/Services/product.service';
 import { WomenProductsConstant } from '../../constants/women-products-type';
 import { IProduct } from 'src/app/Models/IProduct';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-women-tshirts',
@@ -10,11 +11,19 @@ import { IProduct } from 'src/app/Models/IProduct';
   styleUrls: ['./women-tshirts.component.css']
 })
 export class WomenTShirtsComponent implements OnInit{
-  constructor(private router: Router, private productService: ProductService) {}
+  constructor(private router: Router, private productService: ProductService, private userService: UserService) {}
 
   products: IProduct[] = [];
-  
+  isAdmin: boolean = false;
   TShirtValue: string = WomenProductsConstant.TShirts;
+
+  ngOnInit(): void {
+    this.GetProducts();
+
+    this.userService.isAdmin$.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
+  }
 
   public GetProducts(){
     this.productService.getAllProductsByType(this.TShirtValue).subscribe((products: IProduct[]) =>{
@@ -28,9 +37,5 @@ export class WomenTShirtsComponent implements OnInit{
 
   redirectToDetails(id: number){
     this.router.navigate(['/Product/' + id])
-  }
-
-  ngOnInit(): void {
-    this.GetProducts();
   }
 }

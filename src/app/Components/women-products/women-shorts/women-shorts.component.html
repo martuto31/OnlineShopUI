@@ -1,7 +1,17 @@
 <div class="clothes-container">
     <div *ngFor="let product of products">
         <div (click)="redirectToDetails(product.id)" class="clothes-item">
-            <img [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
+            <div>
+                <img [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
+                <div class="admin-options" *ngIf="isAdmin">
+                    <button class="admin-btn-edit">
+                        Edit
+                    </button>
+                    <button class="admin-btn-delete">
+                        Delete
+                    </button>
+                </div>
+            </div>
             <div class="product-details">
                 <p>{{product.name}}</p>
                 <p>{{product.price}} лв.</p>
