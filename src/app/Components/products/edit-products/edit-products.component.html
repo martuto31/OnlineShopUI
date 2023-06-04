@@ -73,7 +73,10 @@
             </ng-template>
           </ng-select>  
         </div>
-        <button type="submit">Add Product</button>
+        <button type="submit">Update product</button>
+        <div *ngIf="showSuccessMessage" class="success-message">
+            Product updated successfully!
+          </div>
       </form>
     </div>
   </div>

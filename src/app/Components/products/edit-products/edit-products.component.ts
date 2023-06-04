@@ -18,6 +18,8 @@ export class EditProductsComponent {
   productId: number = this.route.snapshot.params['id'];
   product: IProduct = {name: '', id: this.productId, price: 0, description: '', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
 
+  showSuccessMessage: boolean = false;
+
   productSizes: ProductSizes[] = [];
   selectedSizes: ProductSizes[] = [];
 
@@ -74,6 +76,11 @@ export class EditProductsComponent {
 
     this.productService.editProduct(formData).subscribe(
       (response) => {
+        this.showSuccessMessage = true;
+
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 2000);
       },
       (error) => {
         console.log(error);

@@ -57,3 +57,15 @@ form button {
   max-height: 200px;
   overflow-y: auto;
 }
+
+.success-message{
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  font-family: Inter,"Inter Fallback",sans-serif;
+  font-weight: 500;
+  color: red;
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}

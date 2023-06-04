@@ -16,6 +16,8 @@ import { ProductService } from 'src/app/Services/product.service';
 export class ProductsComponent implements OnInit{
   product: IProduct = {name: '', id: 0, price: 0, description: '', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
 
+  showSuccessMessage: boolean = false;
+
   productSizes: ProductSizes[] = [];
   selectedSizes: ProductSizes[] = [];
 
@@ -71,6 +73,11 @@ export class ProductsComponent implements OnInit{
 
     this.productService.addProduct(formData).subscribe(
       (response) => {
+        this.showSuccessMessage = true;
+
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 2000);
       },
       (error) => {
         console.log(error);
