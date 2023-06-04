@@ -42,15 +42,15 @@ export class CartComponent {
     });
     return totalPrice;
   }
-
+  
   order(): void {
     this.isOrderPlaced = true;
 
     (document.querySelector('.cart-container') as HTMLInputElement).style.filter = 'blur(.5rem)';
 
     setTimeout(() => {
-      this.router.navigate(['/Home']);
-    }, 4000);
-    (document.querySelector('.cart-container') as HTMLInputElement).style.filter = 'blur(0)';
+      this.router.navigate(['']);
+      (document.querySelector('.cart-container') as HTMLInputElement).style.filter = 'blur(0)';
+    }, 3000);
   }
 }
