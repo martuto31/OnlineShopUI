@@ -42,7 +42,11 @@ export class CartComponent {
     });
     return totalPrice;
   }
-  
+
+  private clearCart(){
+    localStorage.removeItem('cart');
+  }
+
   order(): void {
     this.isOrderPlaced = true;
 
@@ -50,7 +54,10 @@ export class CartComponent {
 
     setTimeout(() => {
       this.router.navigate(['']);
+
       (document.querySelector('.cart-container') as HTMLInputElement).style.filter = 'blur(0)';
+
+      this.clearCart();
     }, 3000);
   }
 }
