@@ -3,11 +3,14 @@
         <div class="clothes-item">
             <div>
                 <img (click)="redirectToDetails(product.id)" [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
-                <div class="admin-options" *ngIf="isAdmin">
-                    <button (click)="editProduct(product.id)" class="admin-btn-edit">
+                <div class="admin-options">
+                    <button *ngIf="!isAdmin" (click)="addToCart(product)" class="add-to-cart-btn">
+                        Add to cart
+                    </button>
+                    <button *ngIf="isAdmin" (click)="editProduct(product.id)" class="admin-btn-edit">
                         Edit
                     </button>
-                    <button (click)="deleteProduct(product.id)" class="admin-btn-delete">
+                    <button *ngIf="isAdmin" (click)="deleteProduct(product.id)" class="admin-btn-delete">
                         Delete
                     </button>
                 </div>

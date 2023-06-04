@@ -50,6 +50,19 @@
   gap: 4px;
 }
 
+.add-to-cart-btn{
+  color: white;
+  font-family: Inter,"Inter Fallback",sans-serif;
+  font-size: 1.1rem;
+  grid-column: span 2;
+  padding: .6rem;
+  background-color: rgb(29, 29, 29);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .admin-btn-edit{
   color: white;
   font-family: Inter,"Inter Fallback",sans-serif;
@@ -76,6 +89,6 @@
   transition: background-color 0.3s ease;
 }
 
-.admin-btn-edit:hover, .admin-btn-delete:hover{
+.admin-btn-edit:hover, .admin-btn-delete:hover, .add-to-cart-btn:hover{
   background-color: black;
 }

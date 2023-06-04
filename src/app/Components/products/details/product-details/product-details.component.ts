@@ -15,9 +15,7 @@ export class ProductDetailsComponent implements OnInit{
 
   productId: number = this.route.snapshot.params['id'];
   product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
-  cart: Cart = {
-    products: []
-  };
+  cart: Cart = { products: [] };
 
   ngOnInit(): void {
     this.getProductById(this.productId);

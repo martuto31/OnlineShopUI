@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/Services/product.service';
 import { WomenProductsConstant } from '../../constants/women-products-type';
 import { IProduct } from 'src/app/Models/IProduct';
 import { UserService } from 'src/app/Services/user.service';
+import { Cart } from 'src/app/Models/Cart';
 
 @Component({
   selector: 'app-women-tshirts',
@@ -14,6 +15,7 @@ export class WomenTShirtsComponent implements OnInit{
   constructor(private router: Router, private productService: ProductService, private userService: UserService) {}
 
   products: IProduct[] = [];
+  cart: Cart = { products: [] };
   isAdmin: boolean = false;
   TShirtValue: string = WomenProductsConstant.TShirts;
 
@@ -23,6 +25,11 @@ export class WomenTShirtsComponent implements OnInit{
     this.userService.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
     });
+
+    const storedCart = localStorage.getItem('cart');
+    if(storedCart != null){
+      this.cart = storedCart ? JSON.parse(storedCart) : [];
+    }
   }
 
   public GetProducts(){
@@ -37,6 +44,12 @@ export class WomenTShirtsComponent implements OnInit{
 
   redirectToDetails(id: number){
     this.router.navigate(['/Product/' + id])
+  }
+
+  addToCart(product: IProduct): void {
+    this.cart.products.push(product);
+
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
   deleteProduct(id: number){
