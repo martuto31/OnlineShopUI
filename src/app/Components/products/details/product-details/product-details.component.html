@@ -6,13 +6,13 @@
     <div class="product-images">
         <div class="slideshow">
             <div class="big-picture">
-                <img [src]="getBase64ImageUrl(product.picturesData[2])" alt="Product Image">
+                <img [src]="getBase64ImageUrl(product.picturesData[0])" alt="Product Image">
             </div>
             <div class="big-picture">
-                <img [src]="getBase64ImageUrl(product.picturesData[3])" alt="Product Image">
+                <img [src]="getBase64ImageUrl(product.picturesData[1])" alt="Product Image">
             </div>
             <div class="small-pictures">
-                <div *ngFor="let image of product.picturesData.slice(0, 3); let i = index" class="small-picture">
+                <div *ngFor="let image of product.picturesData.slice(2, 5); let i = index" class="small-picture">
                     <img [src]="getBase64ImageUrl(image)" alt="Product Image">
                 </div>
             </div>

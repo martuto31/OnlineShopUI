@@ -4,6 +4,8 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 import { IProduct } from 'src/app/Models/IProduct';
 import { ProductColors } from 'src/app/Models/productColors';
 import { ProductSizes } from 'src/app/Models/productSizes';
+import { ProductTarget } from 'src/app/Models/productTarget';
+import { ProductTypes } from 'src/app/Models/productTypes';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -19,6 +21,12 @@ export class ProductsComponent implements OnInit{
 
   productColors: ProductColors[] = [];
   selectedColors: ProductColors[] = [];
+
+  productTargets: ProductTarget[] = [{id: 1, target: 'Men'}, {id: 2, target: 'Women'}, {id: 3, target: 'Kids'}];
+  selectedTarget: ProductTarget = {id: 0, target: ''};
+
+  productTypes: ProductTypes[] = [{id: 1, type: 'TShirt'}, {id: 2, type: 'Hoodie'}, {id: 3, type: 'Trousers'}, {id: 4, type: 'Shorts'}];
+  selectedType: ProductTypes = {id: 0, type: ''};
 
   selectedImages: FileList | null = null;
   productForm: FormGroup;
@@ -40,8 +48,8 @@ export class ProductsComponent implements OnInit{
     formData.append('name', this.product.name);
     formData.append('description', this.product.description);
     formData.append('price', this.product.price.toString());
-    formData.append('productType', this.product.productType.toString());
-    formData.append('productTarget', this.product.productTarget.toString());
+    formData.append('productType', this.selectedType.id.toString());
+    formData.append('productTarget', this.selectedTarget.id.toString());
 
     if (this.selectedImages && this.selectedImages.length > 0) {
       for (let i = 0; i < this.selectedImages.length; i++) {
