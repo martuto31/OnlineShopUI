@@ -154,6 +154,10 @@
 }
 
 .order-message {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
     font-family: Inter,"Inter Fallback",sans-serif;
     font-size: 1.3rem;
     background-color: #f2f2f2;

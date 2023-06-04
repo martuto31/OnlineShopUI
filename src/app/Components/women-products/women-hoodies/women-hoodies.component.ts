@@ -18,6 +18,7 @@ export class WomenHoodiesComponent {
   cart: Cart = { products: [] };
   isAdmin: boolean = false;
   HoodiesValue: string = WomenProductsConstant.Hoodies;
+  showNotification: boolean = false;
 
   ngOnInit(): void {
     this.GetProducts();
@@ -48,8 +49,13 @@ export class WomenHoodiesComponent {
 
   addToCart(product: IProduct): void {
     this.cart.products.push(product);
+    this.showNotification = true;
 
     localStorage.setItem('cart', JSON.stringify(this.cart));
+
+    setTimeout(() => {
+      this.showNotification = false;
+    }, 2000);
   }
 
   deleteProduct(id: number){

@@ -92,3 +92,30 @@
 .admin-btn-edit:hover, .admin-btn-delete:hover, .add-to-cart-btn:hover{
   background-color: black;
 }
+
+.notification {
+  position:relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  animation: fade-in 0.5s ease-in-out;
+  margin-bottom: .3rem;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
