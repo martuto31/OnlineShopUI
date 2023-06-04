@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, skip } from 'rxjs';
 import { IProduct } from '../Models/IProduct';
 import { ProductSizes } from '../Models/productSizes';
 import { ProductColors } from '../Models/productColors';
@@ -17,8 +17,8 @@ export class ProductService {
   private headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   private options = { headers: this.headers };
 
-  getAllProductsByType(type: string): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.apiProductUrl}/GetProductsByType?type=` + type);
+  getAllProductsByType(type: string, skipCount: number): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`${this.apiProductUrl}/GetProductsByType?type=${type}&skipCount=${skipCount}`);
   }
 
   getProductById(id: number): Observable<IProduct> {

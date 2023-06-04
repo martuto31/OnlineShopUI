@@ -19,9 +19,10 @@ export class WomenTrousersComponent implements OnInit{
   isAdmin: boolean = false;
   TrousersValue: string = WomenProductsConstant.Trousers;
   showNotification: boolean = false;
+  skipCount: number = 0;
 
   ngOnInit(): void {
-    this.GetProducts();
+    this.GetProducts(this.skipCount);
 
     this.userService.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
@@ -33,10 +34,17 @@ export class WomenTrousersComponent implements OnInit{
     }
   }
 
-  public GetProducts(){
-    this.productService.getAllProductsByType(this.TrousersValue).subscribe((products: IProduct[]) =>{
-      this.products = products;
+  public GetProducts(skipCount: number){
+    this.productService.getAllProductsByType(this.TrousersValue, skipCount).subscribe((products: IProduct[]) =>{
+      products.forEach((product: IProduct) => {
+        this.products.push(product);
+      });
     })
+  }
+
+  showMore(){
+    this.skipCount = this.products.length;
+    this.GetProducts(this.skipCount);
   }
 
   getBase64ImageUrl(base64String: string): string {

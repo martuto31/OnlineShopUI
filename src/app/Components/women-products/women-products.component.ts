@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProductService } from 'src/app/Services/product.service';
 import { WomenProductsConstant } from '../constants/women-products-type';
 import { IProduct } from 'src/app/Models/IProduct';
 
@@ -10,7 +8,7 @@ import { IProduct } from 'src/app/Models/IProduct';
   styleUrls: ['./women-products.component.css']
 })
 export class WomenProductsComponent {
-  constructor(private router: Router, private productService: ProductService) {}
+  constructor() {}
 
   products: IProduct[] = [];
 
@@ -18,10 +16,4 @@ export class WomenProductsComponent {
   HoodiesValue: string = WomenProductsConstant.Hoodies;
   TrousersValue: string = WomenProductsConstant.Trousers;
   ShortsValue: string = WomenProductsConstant.Shorts;
-
-  public GetProducts(type: string){
-    this.productService.getAllProductsByType(type).subscribe((products: IProduct[]) =>{
-      this.products = products;
-    })
-  }
 }
