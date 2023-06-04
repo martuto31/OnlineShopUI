@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
     margin-top: 7.5%;
+    filter: blur(0);
 }
 
 .cart-products-container{
@@ -151,3 +152,11 @@
     padding: 0;
     margin-top: 3.5rem;
 }
+
+.order-message {
+    font-family: Inter,"Inter Fallback",sans-serif;
+    font-size: 1.3rem;
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+  }

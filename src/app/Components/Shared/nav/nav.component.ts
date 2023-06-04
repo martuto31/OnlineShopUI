@@ -43,6 +43,7 @@ export class NavComponent {
 
   logout(){
     this.isAuthenticated = false;
+    this.userService.setAuthenticated(false);
 
     localStorage.removeItem('token');
     localStorage.removeItem('isAuthenticated');

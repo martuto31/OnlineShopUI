@@ -23,8 +23,12 @@
                 <p class="total-price">{{totalPrice}} лв.</p>
             </div>
             <div class="order-btn-container">
-                <button class="order-btn">Order</button>
+                <button class="order-btn" (click)="order()">Order</button>
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="isOrderPlaced" class="order-message">
+    <p>Your order has been placed. Redirecting to the home page...</p>
 </div>

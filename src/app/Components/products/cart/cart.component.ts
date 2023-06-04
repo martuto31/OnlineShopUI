@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart } from 'src/app/Models/Cart';
 
 @Component({
@@ -7,8 +8,11 @@ import { Cart } from 'src/app/Models/Cart';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
+  constructor(private router: Router){}
+
   cart: Cart = { products: []}
   totalPrice: number = 0;
+  isOrderPlaced: boolean = false;
 
   ngOnInit(){
     const cart = localStorage.getItem('cart');
@@ -37,5 +41,16 @@ export class CartComponent {
       totalPrice += product.price;
     });
     return totalPrice;
+  }
+
+  order(): void {
+    this.isOrderPlaced = true;
+
+    (document.querySelector('.cart-container') as HTMLInputElement).style.filter = 'blur(.5rem)';
+
+    setTimeout(() => {
+      this.router.navigate(['/Home']);
+    }, 4000);
+    (document.querySelector('.cart-container') as HTMLInputElement).style.filter = 'blur(0)';
   }
 }
