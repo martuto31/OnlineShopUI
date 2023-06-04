@@ -24,6 +24,7 @@ export class WomenTShirtsComponent implements OnInit{
     this.GetProducts();
 
     this.userService.isAdmin$.subscribe((isAdmin) => {
+      console.log(isAdmin);
       this.isAdmin = isAdmin;
     });
 

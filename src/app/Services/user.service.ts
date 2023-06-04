@@ -33,12 +33,21 @@ export class UserService {
     localStorage.setItem('isAuthenticated', isAuthenticated.toString());
   }
 
+  setAdmin(isAdmin: boolean): any{
+    this.isAdminSubject.next(isAdmin);
+    localStorage.setItem('isAdmin', isAdmin.toString());
+  }
+
   checkIfAdmin(): any{
     var role = localStorage.getItem('role');
+    
     if(role === "Admin")
     {
-      this.isAdminSubject.next(true);
-      localStorage.setItem('isAdmin', 'true');
+      this.setAdmin(true);
+    }
+    else
+    {
+      this.setAdmin(false);
     }
   }
 }
