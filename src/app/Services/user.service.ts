@@ -18,6 +18,8 @@ export class UserService {
   constructor(private http: HttpClient) {
     this.isAuthenticatedSubject.next(localStorage.getItem('isAuthenticated') === 'true');
     this.isAdminSubject.next(localStorage.getItem('isAdmin') === 'true');
+    // console.log(localStorage.getItem('isAuthenticated'));
+    // console.log(localStorage.getItem('isAdmin'));
    }
 
   registerUser(user: User): Observable<User> {
@@ -40,7 +42,7 @@ export class UserService {
 
   checkIfAdmin(): any{
     var role = localStorage.getItem('role');
-    
+
     if(role === "Admin")
     {
       this.setAdmin(true);

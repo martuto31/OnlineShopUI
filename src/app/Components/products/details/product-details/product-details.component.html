@@ -9,7 +9,7 @@
                 <img [src]="getBase64ImageUrl(product.picturesData[currentIndex])" alt="Product Image">
             </div>
             <div class="small-pictures">
-                <div *ngFor="let image of product.picturesData; let i = index" class="small-picture">
+                <div *ngFor="let image of product.picturesData; let i = index;" class="small-picture">
                     <img [src]="getBase64ImageUrl(image)" alt="Product Image" (click)="selectPicture(i)">
                 </div>
             </div>
