@@ -17,6 +17,7 @@ export class ProductDetailsComponent implements OnInit{
   product: IProduct = {name: '', id: 0, price: 10, description: 'asd', productTarget: 0, productType: 0, picturesData: [], productSizes: [], productColors: []}
   cart: Cart = { products: [] };
   showSuccessMessage: boolean = false;
+  currentIndex: number = 0;
 
   ngOnInit(): void {
     this.getProductById(this.productId);
@@ -49,6 +50,10 @@ export class ProductDetailsComponent implements OnInit{
     setTimeout(() => {
       this.showSuccessMessage = false;
     }, 2000);
+  }
+
+  selectPicture(index: number){
+    this.currentIndex = index;
   }
 
   enumToArr(value: any): any[] {
