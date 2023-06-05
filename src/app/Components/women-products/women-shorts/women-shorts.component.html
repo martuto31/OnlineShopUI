@@ -1,11 +1,11 @@
 <div class="clothes-container">
-    <div *ngFor="let product of products">
+    <div *ngFor="let product of products; let i = index">
         <div class="clothes-item">
             <div>
-                <div *ngIf="showNotification" class="notification">+1</div>
+                <div [id]="i" *ngIf="activeNotificationId === i.toString()" class="notification">+1</div>
                 <img (click)="redirectToDetails(product.id)" [src]="getBase64ImageUrl(product.picturesData[0])" class="product-image" alt="Product Image">
                 <div class="admin-options">
-                    <button *ngIf="!isAdmin" (click)="addToCart(product)" class="add-to-cart-btn">
+                    <button *ngIf="!isAdmin" (click)="addToCart(product, i)" class="add-to-cart-btn">
                         Add to cart
                     </button>
                     <button *ngIf="isAdmin" (click)="editProduct(product.id)" class="admin-btn-edit">

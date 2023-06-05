@@ -20,6 +20,7 @@ export class WomenHoodiesComponent {
   HoodiesValue: string = WomenProductsConstant.Hoodies;
   showNotification: boolean = false;
   skipCount: number = 0
+  activeNotificationId: string = '';
 
   ngOnInit(): void {
     this.GetProducts(this.skipCount);
@@ -55,15 +56,16 @@ export class WomenHoodiesComponent {
     this.router.navigate(['/Product/' + id])
   }
 
-  addToCart(product: IProduct): void {
+  addToCart(product: IProduct, index: number): void {
     this.cart.products.push(product);
-    this.showNotification = true;
 
-    localStorage.setItem('cart', JSON.stringify(this.cart));
+    this.activeNotificationId = index.toString();
 
     setTimeout(() => {
-      this.showNotification = false;
+      this.activeNotificationId = '';
     }, 2000);
+
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
   deleteProduct(id: number){
